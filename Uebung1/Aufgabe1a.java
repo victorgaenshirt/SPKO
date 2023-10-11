@@ -29,7 +29,13 @@ public class Aufgabe1a {
 
     private static boolean parseOneString(String s) {
 
+        //laufe den String zeichenweise ab, ob ein Prozentzeichen vorkommt
+
+        //falls nein, alles nur Text
+
         return false;
     }
 
 }
+
+
