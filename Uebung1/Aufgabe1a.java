@@ -34,26 +34,57 @@ public class Aufgabe1a {
 
         System.out.println("-------- parsing String " +s+ "--------");
 
-        //laufe den String zeichenweise ab, ob ein Prozentzeichen vorkommt
+        checkSubStringForPercentCypher(s);
+
+        // laufe den String zeichenweise ab, ob ein Prozentzeichen vorkommt
         int posOfPercentCypher = s.indexOf("%");
 
-        //falls nein, alles nur Text
+
+        // falls nein, alles nur Text
         if (posOfPercentCypher == -1) {
             System.out.println("(es gibt keine Prozentzeichen im String " + s + ")");
-            System.out.println(returnAsText(s));
+            System.out.println(returnAsTextString(s));
             return true;
         }
 
+        // es ist ein Formatstring enthalten und ab hier beginnt jetzt die Verarbeitung erst richtig
 
+        // substring extrahieren von posOfPercentCypherPercentCypher bis
+
+        int formatLen = countFormatStringLength(s.substring(posOfPercentCypher));
+
+        if (formatLen == 0) {
+
+        }
+        //gebe Substring von
 
         return false;
     }
 
+    private static void checkSubStringForPercentCypher(String s) {
+    }
 
-    private static String returnAsText(String s) {
+    private static int countFormatStringLength(String s) {
+
+        }
+        //zaehle, wie viele Zeichen hinter dem Prozentzeichen zum aktuellen Formatstring gehoeren
+
+        //String char-weise ablaufen, bis die Zeichen keine Format-String-Symbole mehr sein können
+
+
+
+        return 0;
+    }
+
+
+    private static String returnAsTextString(String s) {
         return "TEXT(\"" + s + "\")";
     }
 
+
+    private static String returnAsFormatString(String s) {
+        return "FORMAT(\"" + s + "\")";
+    }
 
 
 }
