@@ -12,9 +12,11 @@ public class Aufgabe1a {
     static Matcher matcher;
 
     static StringBuilder finalOutput;
-    static int counter = 0;
+    static String endLine = "---------------------------------";
     public static void main(String[] args) {
 
+        String testString = "%%";
+        parse(testString);
         parse(input1);
         parse(input2);
         parse(input3);
@@ -24,19 +26,13 @@ public class Aufgabe1a {
 
     private static void parse(String input) {
 
-/*            for (int i = 0; i < input.length(); i++) {
-                System.out.println(input.charAt(i));
-            }*/
-
-        pattern = Pattern.compile("(%(\\d+\\$)?([-#+ 0,(<]*)?(\\d+)?(\\.\\d+)?[tT]?[a-zA-Z%])");
+        pattern = Pattern.compile("(%(\\d+\\$)?([-#+ 0,(<]*)?(\\d+)?(\\.\\d+)?[tT]?[a-zA-Z])");
+        //pattern = Pattern.compile("(%(\\d+\\$)?([-#+ 0,(<]*)?(\\d+)?(\\.\\d+)?[tT]?[a-zA-Z%])");
 
         System.out.println("String to parse:\n" + input + "\n");
         finalOutput = new StringBuilder();
         parseSubstring(input);
-
-
-        System.out.println("FinalString: " + finalOutput.toString());
-        System.out.println("---------------------------------");
+        System.out.println("FinalString: " + finalOutput.toString() + "\n" + endLine);
     }
 
     private static void parseSubstring(String subStr) {
@@ -53,11 +49,6 @@ public class Aufgabe1a {
                 finalOutput.append(generateTextOutput(textDavor));
             }
             finalOutput.append(generateFormatOutput(formatMatch));
-            //finalOutput.append(generateTextOutput(textDavor));
-            //System.out.println(generateTextOutput(textDanach));
-            //System.out.println(generateFormatOutput(formatMatch));
-            //System.out.println(generateTextOutput(textDanach));
-            //String formatSpecifier = matcher.group();
             if (subStr.length() - end > 0 ) {
                 String nextRoundStr = subStr.substring(end, subStr.length());
                 System.out.println("nextRoundStr: " + nextRoundStr);
