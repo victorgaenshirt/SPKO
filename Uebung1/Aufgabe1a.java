@@ -1,5 +1,6 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.lang.StringBuilder;
 
 public class Aufgabe1a {
     static String input1 = "xxx %d yyy%n";
@@ -17,23 +18,24 @@ public class Aufgabe1a {
     }
 
     private static void parse(String input) {
-            Pattern pattern = Pattern.compile("(%(\\d+\\$)?([-#+ 0,(<]*)?(\\d+)?(\\.\\d+)?[tT]?[a-zA-Z%])");
-            Matcher matcher = pattern.matcher(input);
+        StringBuilder finalString = new StringBuilder();
+        Pattern pattern = Pattern.compile("(%(\\d+\\$)?([-#+ 0,(<]*)?(\\d+)?(\\.\\d+)?[tT]?[a-zA-Z])");
+        Matcher matcher = pattern.matcher(input);
             int readIndex = 0;
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
                     String textBefore = input.substring(readIndex, start);
-                    System.out.println("TEXT(\"" + textBefore + "\")");
+                    finalString.append("TEXT(\"" + textBefore + "\")");
                     String match = matcher.group();
-                    System.out.println("FORMAT(\"" + match + "\")");
+                    finalString.append("FORMAT(\"" + match + "\")");
                     readIndex = end;
                 }
                 String textAfter = input.substring(readIndex);
                 if(!textAfter.isEmpty()) {
-                    System.out.println("TEXT(\"" + textAfter + "\")");
+                    finalString.append("TEXT(\"" + textAfter + "\")");
                 }
-                System.out.println("\n\n");
+                System.out.println(finalString + "\n");
     }
 }
 
