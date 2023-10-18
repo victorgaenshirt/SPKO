@@ -19,10 +19,27 @@ public class Aufgabe1a {
     private static void parse(String input) {
             Pattern pattern = Pattern.compile("(%(\\d+\\$)?([-#+ 0,(<]*)?(\\d+)?(\\.\\d+)?[tT]?[a-zA-Z%])");
             Matcher matcher = pattern.matcher(input);
+            int lastEnd = 0;
+
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+
+            String unmatch = input.substring(lastEnd, start);
+            System.out.println("TEXT(\"" + unmatch + "\")");
+
+            String formatSpecifier = input.substring(start, end);
+            System.out.println("FORMAT(\"" + formatSpecifier + "\")");
+
+            lastEnd = end;
+        }
+            String stillText = input.substring(lastEnd);
+            System.out.println("TEXT(\\\"\" + stillText + \"\\\")");
+
             for (int i = 0; i < input.length(); i++) {
                 System.out.println(input.charAt(i));
             }
-                while (matcher.find()) {
+              /*  while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
                     String match = input.substring(start, end);
@@ -31,6 +48,8 @@ public class Aufgabe1a {
                     System.out.println("TEXT(\"" + unmatch + "\")");
                     String formatSpecifier = matcher.group();
                 }
+
+               */
     }
 }
 
