@@ -27,3 +27,5 @@ replay_pid*
 #UNSERE EIGENEN DINGER
 /.idea
 code.iml
+/Uebung1/.antlr/
+/Uebung2/.antlr/
