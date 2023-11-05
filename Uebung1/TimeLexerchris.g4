@@ -1,4 +1,4 @@
-grammar TimeLexer;
+grammar TimeLexerchris;
 prog:   (expr NEWLINE)* ;
 expr:   HOUR COLON MINUTE DT;
 
