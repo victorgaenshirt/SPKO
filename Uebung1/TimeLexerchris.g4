@@ -6,14 +6,15 @@ grammar TimeLexerchris;
 
 /*
 Parser rules start with a lower case. These rules focus on helping you build an abstract syntax tree out of your parsed tokens. */
-prog:   (CLOCK NEWLINE? )*;
-CLOCK:  Hour COLON Minute;
+prog:   TIME DT NEWLINE?;
 
 /* Lexer rules always start with an uppercase letter. These rules focus on defining the tokens that will form the foundation of your parser rules. */
-/* Hour und Minute als fragment zu definieren hat den Vorteil, dass diese nicht in umgekehrter Reihenfolge erkannt werden können.
+/* Hour und Minute als fragment zu definieren, verhindert den Fall, dass  HOUR:HOUR oder MINUTE:MINUTE erkannt wird. (je nachdem, ob die Zeile 
+    mit der Definition von HOUR oder MINUTE weiter oben im Code steht)
     Das wäre der Fall, wenn man diese als Token definieren würde statt als fragment. */ 
-fragment Hour : [0-9] | ONETOTWELVE;
-fragment ONETOTWELVE : [01] [0-2];
+TIME:   Hour COLON Minute;
+fragment Hour : [0-9] | OneToTwelve;
+fragment OneToTwelve : [01] [0-2];
 fragment Minute : [0-5] [0-9];
 
 DT : 'AM' | 'PM' | 'am' | 'pm';
@@ -27,9 +28,8 @@ NEWLINE : [\r\n]+ ;
 /* 
 Befehl für die Kommandozeile:
 
-antlr4-parse TimeLexer.g4 prog -gui
-1:01AM
+antlr4-parse TimeLexerchris.g4 prog -tokens -tree -gui -trace        //-tree und -trace müssen nicht angegeben werden, und gui funktioniert eh nicht ;)
+01:01AM
 STRG+D
 
-akzeptiert den String, startet aber irgendwie die gui nicht 
  */
