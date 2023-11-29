@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 public final class MailAdress {
     private String user;
     private String domain;
