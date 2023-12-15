@@ -2,10 +2,12 @@ lexer grammar Aufgabe2aLexer;
 
 // Lexer für Aufgabe 2a
 
-USER: [A-Z a-z 0-9 -.]+;
+USER: [A-Za-z 0-9 .-]+;
 MAILSIGN: '@';
-DOMAIN: [A-Z a-z]+;
+DOMAIN: [A-Za-z]+;
 ENDING: '.de' | '.com' | '.org' | '.net';
-COMMA: ',';
+PUNKT: '.';
+COMMA: ','; //für die mailList
 
 WS: [ \t\r\n]+ -> channel(HIDDEN);
+ERROR: . -> channel(HIDDEN);
