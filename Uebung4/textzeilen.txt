@@ -1,0 +1,19 @@
+Hallo, ich bin eine Textdatei.
+
+//nächste Zeile<20
+12345678900987654321
+aaaaaaaaaaaaaaaaaaaa
+21zeichen------------
+Diese Zeile ist wirklich deutlich länger als 20 Zeichen.
+Diese Zeile ist wirklich AUUUCH deutlich länger als 20 Zeichen.
+
+aaaaaaaaaabbbbbbbbbbbvvvvvvvvvvvvvvv
+abcdef
+
+aaa
+
+aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbccccccccccccccccccccccccc
+123456789009876
+12345678900987654321asdkfmlsdmfkldsmfklmdsfkl
+
+
