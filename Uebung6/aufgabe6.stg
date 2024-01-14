@@ -1,0 +1,31 @@
+group Aufgabe6;
+
+classDecl(clazz) ::= <<
+    <h2>class <clazz.getName()>:</h2>
+    <table>
+    <tr><th>Interface</th><th>Methods</th></tr>
+    <interfaces(clazz)>
+    </table>
+    <br>
+>>
+
+interfaces(clazz) ::= <<
+    <clazz.getInterfaces(); separator="\n">
+>>
+
+interfaceDecl(iface) ::= <<
+    <h2>interface <iface.getName()>:</h2>
+    <table>
+    <tr><th>Methods</th></tr>
+    <tr>
+    <td>
+    <methods(iface)>
+    </td>
+    </tr>
+    </table>
+    <br>
+>>
+
+methods(iface) ::= <<
+    <iface.getMethods(); separator="<br>" />
+>>
