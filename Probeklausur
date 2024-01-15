@@ -1,0 +1,21 @@
+Aufgabe1
+
+a) 
+Syntax: 	vokabular / grammatik
+Semantik:	statisch / dynamisch
+Pragmatik: 	domänen / stil
+
+b)
+Syntax 
+1. int sind ganzzahlige Literale im bereich int.min() - int.max
+2. auf eine öffnende Klammer muss irgendwann eine schließende folgen
+3. 
+4.
+
+c)
+um damit die richtigkeit der eingaben zu prüfen und fehler abzufangen
+Für 
+1. Festlegung von Zeichenklassen: welche klasse ist was 
+2. Quantifizierung: wie oft kommt etwas nacheinander
+
+d)

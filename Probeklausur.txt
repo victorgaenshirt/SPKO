@@ -1,0 +1,139 @@
+Aufgabe1
+
+a) 
+Syntax: 	vokabular / grammatik
+Semantik:	statisch / dynamisch
+Pragmatik: 	domänen / stil
+
+b)
+Syntax 
+1. int sind ganzzahlige Literale im bereich int.min() - int.max
+2. auf eine öffnende Klammer muss irgendwann eine schließende folgen
+3. 
+4.
+
+c)
+um damit die Richtigkeit der eingaben zu prüfen und fehler abzufangen
+Für 
+1. Festlegung von Zeichenklassen: welche klasse ist was 
+2. Quantifizierung: wie oft kommt etwas nacheinander
+
+d)
+
+
+
+
+
+Aufgabe2
+
+a)
+			       uri
+			       /                         \
+			   url                            \
+			/ |  \            \        \       \
+		   /   |	authority      \       \	    \
+	  scheme	  |     \            \    path        \
+        |       |     host         |     |           \
+        |       |      |           |     |            |
+	  https   ://   htwg-konstanz  /   ~drachen/     EOF
+
+
+			            uri
+			         /                                    \
+			      url                                       \
+			/ |  \                       \    \               \
+		   /   |	authority                 \   query 	          \
+	  scheme	  |     \                       \    \               \
+        |       |      |                       |  searchparameter   \
+        |       |      |                       |     |               \
+	  mailto   : drachenfels@htwg-konstanz.de  ? Subject=klausur     EOF
+
+
+b)
+- 
+
+
+Aufgabe3
+
+
+a) Sie sind rekursiv
+b) Higher order functions bekommen funktionen als Eingabeparameter
+c) Lambdas sind anonyme Funktionen, können dynamisch erstellt werden. Sie sind häufig eingabe Parameter oder Rückgabewerte von Higher Order functions.
+d) Lambdas ergeben zusammen mit ihrem Erstellungskontext closures.
+e) Beim currying wird der zweite Parameter ergänzt. 
+Es kann also eine Funktion mit einem Parameter mit zwei einzelnen aufgerufen werden.
+Eine Funktion mit mehreren Parametern wird durch mehrere Funktionen mit einem Parameter ersetzt.
+z.B. add(1) (2) während die Funktion als add(int x) {...} beschrieben wird.  
+
+
+Aufgabe4
+
+a)  rekursive Programme sind bei einem nicht optimierenden Compiler nicht unbedingt schneller.
+B) 
+
+If 11 >= 13
+	return x
+Else
+	return 11 + 12,
+
+11+ 12 + 13 = 36
+Return 36
+
+Letzter Schritt unterscheidet sich da summe s als zusätzlicher Parameter mitgeführt wird
+
+1. 
+Die zweite Funktion (mit drei Parametern) lässt sich leichter optimieren, indem man die Rekursion in eine Schleife umwandelt. In dieser Funktion wird bereits ein Akkumulator (s) verwendet, was die Umwandlung erleichtert.
+
+2. 
+Die optimierungsfreundliche Rekursionsform nennt sich "Endrekursion" oder "Endrekursion mit Akkumulator". Dabei wird der Zwischenzustand (in diesem Fall die Summe s) als zusätzlicher Parameter mitgeführt, was die Optimierung durch eine Schleife erleichtert.
+3.
+private static int summe(int von, int bis, int s) {
+    while (von <= bis) {
+        s += von;
+        von++;
+    }
+    return s;
+}
+
+
+Aufgabe5
+
+a)
+true
+N = 2.0
+X = bruno, X = erna
+
+b)
+Bestanden(X) :-
+	note(X,Y),
+	Y <= 4.0.
+
+c)
+true
+X = berta, X = bruno, X = erna
+False
+
+d)
+% Regel für die Summe einer Liste von Noten
+summe_noten(Liste, Summe) :- summe_noten_hilfe(Liste, 0, Summe).
+
+% Hilfsregel für die Summe mit einem Akkumulator
+summe_noten_hilfe([], Akkumulator, Akkumulator).
+summe_noten_hilfe([Note|Rest], Akkumulator, Summe) :-
+    NeuerAkkumulator is Akkumulator + Note,
+    summe_noten_hilfe(Rest, NeuerAkkumulator, Summe).
+
+% Regel für die Anzahl der Elemente in einer Liste
+anzahl_elemente(Liste, Anzahl) :- length(Liste, Anzahl).
+
+
+e)
+A mit 1.3
+X mit berta
+B mit bruno
+Y bleibt ungebunden.
+C wird zu [[erna, 2.0] | _].
+
+Aufgabe6
+A)
+Typinferenz ist die Herleitung des Typs eines Sprachkonstrukts aus seinen Bestandteilen und dem Kontext.

@@ -22,17 +22,3 @@ public final class MailAdress {
         return ending;
     }
 }
-
-public final class MailList {
-    private List<MailAdress> adresses;
-
-    public MailList {
-        adresses = new LinkedList<>();
-    }
-    public List addMailAdress (MailAdress adress) {
-        adresses.add(adress)
-    }
-    public List getMailAdresses () {
-        return adresses;
-    }
-}

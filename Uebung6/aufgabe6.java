@@ -1,6 +1,7 @@
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collection;
+import org.stringtemplate.v4.*;
 public class aufgabe6 {
 
     public static void main(String[] args) {
