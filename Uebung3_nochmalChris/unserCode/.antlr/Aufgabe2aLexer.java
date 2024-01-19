@@ -1,4 +1,4 @@
-// Generated from Aufgabe2aLexer.g4 by ANTLR 4.13.1
+// Generated from /home/xymint/studium/faecher/WS2324/sprachkonzepte/uebung/SPKO/Uebung3_nochmalChris/unserCode/Aufgabe2aLexer.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

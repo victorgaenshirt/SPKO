@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
-public class Aufgabe2aParser extends Parser {
+public class Aufgabe2aParserParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -83,7 +83,7 @@ public class Aufgabe2aParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public Aufgabe2aParser(TokenStream input) {
+	public Aufgabe2aParserParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -93,7 +93,7 @@ public class Aufgabe2aParser extends Parser {
 		public UserPartContext userPart() {
 			return getRuleContext(UserPartContext.class,0);
 		}
-		public TerminalNode MAILSIGN() { return getToken(Aufgabe2aParser.MAILSIGN, 0); }
+		public TerminalNode MAILSIGN() { return getToken(Aufgabe2aParserParser.MAILSIGN, 0); }
 		public DomainPartContext domainPart() {
 			return getRuleContext(DomainPartContext.class,0);
 		}
@@ -138,7 +138,7 @@ public class Aufgabe2aParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class UserPartContext extends ParserRuleContext {
-		public TerminalNode USER() { return getToken(Aufgabe2aParser.USER, 0); }
+		public TerminalNode USER() { return getToken(Aufgabe2aParserParser.USER, 0); }
 		public UserPartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -176,8 +176,8 @@ public class Aufgabe2aParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DomainPartContext extends ParserRuleContext {
-		public TerminalNode DOMAIN() { return getToken(Aufgabe2aParser.DOMAIN, 0); }
-		public TerminalNode ENDING() { return getToken(Aufgabe2aParser.ENDING, 0); }
+		public TerminalNode DOMAIN() { return getToken(Aufgabe2aParserParser.DOMAIN, 0); }
+		public TerminalNode ENDING() { return getToken(Aufgabe2aParserParser.ENDING, 0); }
 		public DomainPartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -223,9 +223,9 @@ public class Aufgabe2aParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public List<TerminalNode> COMMA() { return getTokens(Aufgabe2aParser.COMMA); }
+		public List<TerminalNode> COMMA() { return getTokens(Aufgabe2aParserParser.COMMA); }
 		public TerminalNode COMMA(int i) {
-			return getToken(Aufgabe2aParser.COMMA, i);
+			return getToken(Aufgabe2aParserParser.COMMA, i);
 		}
 		public MailListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);

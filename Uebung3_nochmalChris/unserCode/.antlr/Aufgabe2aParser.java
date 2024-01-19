@@ -1,4 +1,4 @@
-// Generated from Aufgabe2aParser.g4 by ANTLR 4.13.1
+// Generated from /home/xymint/studium/faecher/WS2324/sprachkonzepte/uebung/SPKO/Uebung3_nochmalChris/unserCode/Aufgabe2aParser.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -101,14 +101,6 @@ public class Aufgabe2aParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expr; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Aufgabe2aParserListener ) ((Aufgabe2aParserListener)listener).enterExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Aufgabe2aParserListener ) ((Aufgabe2aParserListener)listener).exitExpr(this);
-		}
 	}
 
 	public final ExprContext expr() throws RecognitionException {
@@ -143,14 +135,6 @@ public class Aufgabe2aParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_userPart; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Aufgabe2aParserListener ) ((Aufgabe2aParserListener)listener).enterUserPart(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Aufgabe2aParserListener ) ((Aufgabe2aParserListener)listener).exitUserPart(this);
-		}
 	}
 
 	public final UserPartContext userPart() throws RecognitionException {
@@ -182,14 +166,6 @@ public class Aufgabe2aParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_domainPart; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Aufgabe2aParserListener ) ((Aufgabe2aParserListener)listener).enterDomainPart(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Aufgabe2aParserListener ) ((Aufgabe2aParserListener)listener).exitDomainPart(this);
-		}
 	}
 
 	public final DomainPartContext domainPart() throws RecognitionException {
@@ -231,14 +207,6 @@ public class Aufgabe2aParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_mailList; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Aufgabe2aParserListener ) ((Aufgabe2aParserListener)listener).enterMailList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Aufgabe2aParserListener ) ((Aufgabe2aParserListener)listener).exitMailList(this);
-		}
 	}
 
 	public final MailListContext mailList() throws RecognitionException {

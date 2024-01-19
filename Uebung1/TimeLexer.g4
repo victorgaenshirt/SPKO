@@ -34,7 +34,7 @@ NEWLINE : [\r\n]+ ;
 /* 
 Befehl für die Kommandozeile:
 
-antlr4-parse TimeLexerchris.g4 prog -tokens -tree -gui -trace        //-tree und -trace müssen nicht angegeben werden, und gui funktioniert eh nicht ;)
+antlr4-parse TimeLexer.g4 prog -tokens -tree -gui -trace        //-tree und -trace müssen nicht angegeben werden, und gui funktioniert eh nicht ;)
 01:01AM
 STRG+D
 
