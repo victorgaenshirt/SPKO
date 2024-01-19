@@ -7,11 +7,9 @@ import Aufgabe2aLexer;
 import Aufgabe2aParser;
 public class ParsetreeToAST {
     public static void main(String[] args) {
-            Aufgabe2aLexer lexer = new Aufgabe2aLexer(CharStreams.fromStream(System.in));
-            Aufgabe2aParser parser = new Aufgabe2aParser(new CommonTokenStream(lexer));
-            ParseTree tree = parser.email();
-        JSON ast = new JSONBuilder().build(tree);
-        System.out.println(ast);
+        Aufgabe2aLexer lexer = new Aufgabe2aLexer(CharStreams.fromStream(System.in));
+        Aufgabe2aParser parser = new Aufgabe2aParser(new CommonTokenStream(lexer));
+        ParseTree tree = parser.email();
     }
 }
 

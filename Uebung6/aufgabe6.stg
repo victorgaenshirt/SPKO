@@ -1,31 +1,41 @@
 group Aufgabe6;
 
-classDecl(clazz) ::= <<
-    <h2>class <clazz.getName()>:</h2>
-    <table>
-    <tr><th>Interface</th><th>Methods</th></tr>
-    <interfaces(clazz)>
-    </table>
-    <br>
+delimiters "$","$"
+
+root(n) ::= <<
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<style type="text/css">
+th, td { border-bottom: thin solid; padding: 4px; text-align: left; } td { font-family: monospace }
+</style>
+</head>
+<body>
+<b>Sprachkonzepte, Aufgabe 7</b>
+$n:classes(); separator="\n"$
+</body>
+</html>
 >>
 
-interfaces(clazz) ::= <<
-    <clazz.getInterfaces(); separator="\n">
+classes(c) ::= <<
+<h2>$c$</h2>
+<table>
+$if(c.interface)$
+<tr><th>Methods</th></tr>
+<tr><td>$c.methods:method(); separator="<br>\n"$</td></tr> $else$
+<tr><th>Interface</th><th>Methods</th></tr> $c.interfaces:interfaces(); separator="\n"$ $endif$
+</table>
+>>
+interfaces(i) ::= <<
+25
+<tr>
+<td valign=top>$i.name$</td> <td>$i.methods:method(); separator="<br>\n"$</td> </tr>
 >>
 
-interfaceDecl(iface) ::= <<
-    <h2>interface <iface.getName()>:</h2>
-    <table>
-    <tr><th>Methods</th></tr>
-    <tr>
-    <td>
-    <methods(iface)>
-    </td>
-    </tr>
-    </table>
-    <br>
+method(m) ::= <<
+$m.returnType.name$ $m.name$($m.parameterTypes:methodParameterTypes(); separator=", "$)
 >>
 
-methods(iface) ::= <<
-    <iface.getMethods(); separator="<br>" />
+methodParameterTypes(p) ::= << $p$
 >>
+
