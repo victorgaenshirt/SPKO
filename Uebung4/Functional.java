@@ -9,8 +9,8 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 
 
-public final class Procedural {
-    private Procedural() { }
+public final class Functional {
+    private Functional() { }
 
     private static final int MIN_LENGTH = 20;
 
@@ -20,7 +20,14 @@ public final class Procedural {
 
         long start = System.nanoTime();
 
-        readLines(Files.newBufferedReader(input), lines);
+        // readLines_old(Files.newBufferedReader(input), lines);
+
+        BufferedReader reader = Files.newBufferedReader(input);
+
+
+        
+        
+
         kontrollPrint(lines);
         removeEmptyLines(lines);
         kontrollPrint(lines);
@@ -36,7 +43,32 @@ public final class Procedural {
     }
 
 
-    private static void readLines(BufferedReader reader, LinkedList<String> list) {
+
+    private static void readLinesFunc(BufferedReader reader, LinkedList<String> list) {
+        
+        boolean done = false;
+        while (!done) {
+            try {
+                String line = reader.readLine();
+                                
+                if (line != null) {
+                    list.add(line);   
+                } else {
+                    done = true;
+                }
+            
+            }
+            catch (IOException e) {
+                System.err.println("ioexception: etwas hat nicht gepasst...");
+            }
+            
+        }
+
+        return;
+    }
+
+
+    private static void readLines_old(BufferedReader reader, LinkedList<String> list) {
         
         boolean done = false;
         while (!done) {

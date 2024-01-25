@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestingFunctionalStuff",
+            "request": "launch",
+            "mainClass": "Uebung4.TestingFunctionalStuff",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -15,6 +22,13 @@
             "name": "chris_uebung4",
             "request": "launch",
             "mainClass": "Uebung4.Procedural",
+            "args": "Uebung4/textzeilen.txt"
+        },
+        {
+            "type": "java",
+            "name": "chris_functional_uebung4",
+            "request": "launch",
+            "mainClass": "Uebung4.Functional",
             "args": "Uebung4/textzeilen.txt"
         },
         {
