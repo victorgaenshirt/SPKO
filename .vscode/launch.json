@@ -1,0 +1,112 @@
+{
+    // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+    // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+    // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "chris_uebung4",
+            "request": "launch",
+            "mainClass": "Uebung4.Procedural",
+            "args": "Uebung4/textzeilen.txt"
+        },
+        {
+            "type": "java",
+            "name": "Aufgabe1a",
+            "request": "launch",
+            "mainClass": "Aufgabe1a",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "ExprToAst",
+            "request": "launch",
+            "mainClass": "Beispiele.ast.ExprToAst",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "Foo",
+            "request": "launch",
+            "mainClass": "Beispiele.regex.Foo",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "RegexTest",
+            "request": "launch",
+            "mainClass": "Beispiele.regex.RegexTest",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorld",
+            "request": "launch",
+            "mainClass": "Uebung3.java20.examples.HelloWorld",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "InstanceOf",
+            "request": "launch",
+            "mainClass": "Uebung3.java20.examples.InstanceOf",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "Lambdas",
+            "request": "launch",
+            "mainClass": "Uebung3.java20.examples.Lambdas",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "TryWithResourceDemo",
+            "request": "launch",
+            "mainClass": "Uebung3.java20.examples.TryWithResourceDemo",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "Unicode",
+            "request": "launch",
+            "mainClass": "Uebung3.java20.examples.Unicode",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "Procedural",
+            "request": "launch",
+            "mainClass": "Uebung4.Procedural",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "aufgabe6",
+            "request": "launch",
+            "mainClass": "Uebung6.aufgabe6",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "a1",
+            "request": "launch",
+            "mainClass": "a1",
+            "projectName": "SPKO_62567236"
+        },
+        {
+            "type": "java",
+            "name": "ParsetreeToAST",
+            "request": "launch",
+            "mainClass": "aufgabeB.ParsetreeToAST",
+            "projectName": "SPKO_62567236"
+        }
+    ]
+}
