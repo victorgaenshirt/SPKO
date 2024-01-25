@@ -6,8 +6,11 @@
  -->
 <project default="jar">
 
-    <property name="grammar" value="Aufgabe2a" />
-    <property name="antlr" value="./lib/antlr-4.9.2-complete.jar" />
+    <property name="grammar" value="Java20" />
+    <!-- <property name="antlr" value="/lib/antlr-4.9.2-complete.jar" /> -->
+    <!-- <property name="antlr" value="../../lib/antlr-4.9.2-complete.jar" /> -->
+    <property name="antlr" value="/home/xymint/studium/faecher/WS2324/sprachkonzepte/uebung/SPKO/lib/antlr-4.9.2-complete.jar" />
+    
     <!-- <property name="antlr" value="/home/xymint/studium/faecher/WS2324/sprachkonzepte/uebung/SPKO/lib/antlr-4.9.2-complete.jar" /> -->
 
     <target name="jar" depends="compile">
