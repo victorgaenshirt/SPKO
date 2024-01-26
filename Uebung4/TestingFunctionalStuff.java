@@ -1,7 +1,10 @@
 package Uebung4;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class TestingFunctionalStuff {
 
@@ -17,7 +20,18 @@ public class TestingFunctionalStuff {
         list.forEach((x) -> System.out.println(x));
         list.forEach((x)-> {System.out.println(x*x);});
 
-        list.stream().map(x*x).filter(null);
+        Stream<Integer> stream1 = list.stream()
+                                        .map((x)->x*x)
+                                        .filter(x->x<=1000);
+        // list.stream().sum(x);
+        long langeZahl = stream1.count();
+
+        IntStream.range(1, 21)
+                .parallel()
+                .forEach(System.out::println);
+
+     
+
     }
     
 }

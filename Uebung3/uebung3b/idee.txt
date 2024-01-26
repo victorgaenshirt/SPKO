@@ -1,0 +1,24 @@
+unsere Idee für die Aufgabe 3b:
+
+
+Es soll ja die Korrektheit der dynamischen Semantik überprüft werden.
+
+Plan:
+
+Wir haben ja in etwa dieser Format in der Grammatik festgelegt:
+
+user@domain.ending
+
+
+Jetzt könnten wir in der dynamischen Semantik prüfen, ob der Username mit einer 
+Personengruppe, die wir in einer Liste gespeichert haben, übereinstimmt.
+
+Wenn der username mit einem Namen der Liste übereinstimmt,
+dann führe irgendeine Aktion aus 
+    zb. sendeEineEmailAnUser
+    oder löscheUserAusDerListe
+    oder irgendwas halt.
+
+wenn der Name nicht in der Liste steht, dann werfe einen Fehler oder fordere den User
+auf, den Wert neu einzugeben oä.
+
