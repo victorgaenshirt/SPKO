@@ -1,5 +1,6 @@
-public class NumberSemantic extends Java20ParserListener {
+public class NumberSemantic extends Java20ParserBaseListener {
 
+    @Override
     public void enterNumber(Java20Parser.NumberContext ctx) {
         String number = ctx.getText();
         try {
