@@ -1,4 +1,3 @@
-group Aufgabe6;
 
 delimiters "$","$"
 
@@ -11,7 +10,7 @@ th, td { border-bottom: thin solid; padding: 4px; text-align: left; } td { font-
 </style>
 </head>
 <body>
-<b>Sprachkonzepte, Aufgabe 7</b>
+<b>Sprachkonzepte, Aufgabe 6</b>
 $n:classes(); separator="\n"$
 </body>
 </html>
@@ -27,7 +26,6 @@ $if(c.interface)$
 </table>
 >>
 interfaces(i) ::= <<
-25
 <tr>
 <td valign=top>$i.name$</td> <td>$i.methods:method(); separator="<br>\n"$</td> </tr>
 >>

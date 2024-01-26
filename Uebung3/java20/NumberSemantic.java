@@ -1,7 +1,6 @@
 public class NumberSemantic extends Java20ParserBaseListener {
-
     @Override
-    public void enterNumber(Java20Parser.NumberContext ctx) {
+    public void enterNumericType(Java20Parser.NumericTypeContext ctx) {
         String number = ctx.getText();
         try {
             if (text.endsWith("L") || text.endsWith("l")) {
@@ -16,3 +15,6 @@ public class NumberSemantic extends Java20ParserBaseListener {
         }
     }
 }
+
+
+
