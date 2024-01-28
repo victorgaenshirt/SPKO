@@ -12,6 +12,9 @@ public class ParsetreeToAST {
         Aufgabe2aLexer lexer = new Aufgabe2aLexer(CharStreams.fromStream(System.in));
         Aufgabe2aParser parser = new Aufgabe2aParser(new CommonTokenStream(lexer));
         ParseTree tree = parser.email();
+
+        Expr ast = new MailBuilder().build(tree);
+        System.out.printf("Expr.toString() = \"%s\"%n", ast);
     }
 }
 
