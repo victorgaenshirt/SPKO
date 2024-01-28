@@ -1,19 +1,25 @@
+
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import java.util.Stack;
+
 public final class MailBuilder extends Aufgabe2aParserBaseListener {
     private Stack<Expr> stack = new Stack<>();
 
-    public Mail build(ParseTree tree) {
+    public Expr build(ParseTree tree) {
         ParseTreeWalker walker = new ParseTreeWalker();
         walker.walk(this, tree);
         return stack.pop();
     }
 
     @Override
-    public void exitMail(Aufgabe2aParser.ExprContext ctx) {
-        if (ctx.getChildCount() == 3) {
+    public void exitExpr(Aufgabe2aParser.ExprContext ctx) {
+        if (ctx.getChildCount() == 2) {
             Expr user = stack.pop();
             Expr ending = stack.pop();
-            String mailsign = "@";
-            stack.push(new Mail(user, mailsign, ending));
+            String userPart = ctx.getChild(0).getText();
+            String endingPart = ctx.getChild(1).getText();
+            stack.push(new Mailadr(userPart, endingPart));
         }
     }
 
@@ -28,3 +34,4 @@ public final class MailBuilder extends Aufgabe2aParserBaseListener {
         String DomainPart = ctx.getText();
         stack.push(new Ending(DomainPart));
     }
+}
