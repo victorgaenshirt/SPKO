@@ -24,12 +24,6 @@ public final class MailBuilder extends Aufgabe2aParserBaseListener {
     }
 
     @Override
-    public void exitDomainPart(Aufgabe2aParser.UserPartContext ctx) {
-        String UserPart = ctx.getText();
-        stack.push(new User(UserPart));
-    }
-
-    @Override
     public void exitDomainPart(Aufgabe2aParser.DomainPartContext ctx) {
         String DomainPart = ctx.getText();
         stack.push(new Ending(DomainPart));
