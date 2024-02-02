@@ -48,14 +48,11 @@ public final class Procedural {
                 } else {
                     done = true;
                 }
-            
             }
             catch (IOException e) {
                 System.err.println("ioexception: etwas hat nicht gepasst...");
             }
-            
         }
-
         return;
     }
 
@@ -69,7 +66,6 @@ public final class Procedural {
             if (eintrag.isEmpty()) {
                 iter.remove();
             }
-            
         }
         return;
     }
@@ -80,10 +76,9 @@ public final class Procedural {
         ListIterator<String> iter = list.listIterator();
 
         while (iter.hasNext()) {
-
             String eintrag = iter.next();
             System.out.println(eintrag.length());
-            if (eintrag.length() <= MIN_LENGTH) {
+            if (eintrag.length() < MIN_LENGTH) {
                 iter.remove();
             }
         }
@@ -94,8 +89,8 @@ public final class Procedural {
 
     private static int totalLineLengths(LinkedList<String> list) {
         int counter = 0;
-        for (String line : list) {
-            counter += line.length();
+        for (int i = 0; i < list.size(); i++) {
+            counter += list.get(i).length();
         }
         return counter;
     }

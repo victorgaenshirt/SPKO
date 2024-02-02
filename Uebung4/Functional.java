@@ -21,8 +21,8 @@ public final class Functional {
                         .filter(x-> ! x.isEmpty())
                         .filter(x -> x.length() >= MIN_LENGTH)
                         .peek(System.out::println)
+                        .flatMapToInt(CharSequence::chars)
                         .count();
-
         
         long stop = System.nanoTime();
 

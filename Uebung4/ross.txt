@@ -1,0 +1,210 @@
+ A RAND NOTE
+Prepared for
+THE ROSS LANGUAGE MANUAL
+David McArthur, Philip Klahr, Sanjai Narain
+September 1985
+N-1854-1-AF
+The United States Air Force
+Rand
+170MANI STRET SANTA MONICA. CA 90406-2138
+
+ The research reported here was sponsored by the Directorate of Operational
+Requirements, Deputy Chief of Staff/Research, Development, and Acquisi-
+tion, Hq USAF, under Contract F49620-82-C-0018. The United States Government is authorized to reproduce and distribute reprints for govern-
+mental purposes notwithstanding any copyright notation hereon.
+The Rand Publications Series: The Report is the principal publication doc- umenting and transmitting Rand's major research findings and final research
+results. The Rand Note reports other outputs of sponsored research for general distribution. Publications of The Rand Corporation do not neces-
+sarily reflect the opinions or policies of the sponsors of Rand research.
+Published by The Rand Corporation
+
+ A RAND NOTE
+Prepared for
+THE ROSS LANGUAGE MANUAL
+David McArthur, P h i l i p Klahr, Sanjai
+Narain
+September 1985
+N-1854-1-AF
+The United States Air Force
+Rand 170 0 MANI STRE ET SANTA MONICA. AC 90406-2138
+APPROVED FOR PUBLIC RELEASE; DISTRIBUTION UNLIMITED
+
+
+ ROSS -iii- PREFACE
+This Note is a manual of commands constituting the ROSS language as of Franzlisp version the language. previous manual, N-1854-AF, dated September 1982,
+documented the
+Maclisp
+The primary differences occur in Section 1 (a new ROSS-Emacs interface) and Section 14 (a new ROSS compiler).
+ROSS i s a n o b j e c t - o r i e n t e d p r o g r a m m i n g l a n g u a g e d e v e l o p e d a t R a n d f o r constructing simulations. It represents approach
+to simulation languages, employing concepts from a r t i fi c i a l intelligence.
+The ROSS
+d e c h n o l o g y f o t R e a t - Ti n e D a t e l e t m l a t t o r , W h i c h d e r s d r e k m h o t s e r methods t o improve significantly the development of military simulations.
+The ROSS language,
+in particular, is intended to make it easier ' t o build, modify,
+and understand combat simulations.
+The N o t e d o e s n o t a t t e m p t t o c o n v e y a p p r o p r i a t e
+applications of the ROSS simulation language. (The reader who is interested in ROSS
+applications is referred to Rand Note N-1885-AF,
+which describes a n air battle simulation called SWIRL, and Rand Report R-3158-AF, which describes a tactical land-based simulation called TWIRL.) With the exception of the examples in
+several sections, the present document is mainly a catalog of commands. Experienced users should find this catalog an
+adequate reference; novice users who are unsure of the design philosophy behind object-oriented programmingor, more specifically,
+what constitutes good p r o g r a m m i n g s t y l e i n ROSS a r e e n c o u r a g e d t o s t a r t by s k i m m i n g S e c t i o n 1 (Overview and Basic Concepts) and Section 13 (How To Write English-like Code in ROSS). Details of specific commands can then be accessed as needed.
+
+
+ ROSS
+-v-
+SUMMARY
+conveniently design, test, and change large knowledge-based simulations of complex mechanisms.
+e "nesagepas ep leonp eamninginwciChesyster tobemodeled is represented as a set of actors and their behaviors (rules for actor incoractiorproets style eueillysuitetosmolade,mpostont message-transmissions.
+The fi r s t section of the Note gives an overall view
+of the language and the philosophy behind object-oriented programming.
+The next eleven sections give detailed descriptions of the basic commands o r behaviors of t h e l a n g u a g e . The fi n a l two s e c t i o n s g i v e a d v i c e on how t o w r i t e English-like code in ROSS and how to optimize code, once i t has been debugged.
+
+
+ ROSS -vii- ACKNOWLEDGMENTS
+ROSS counts SMALLTALK and especially DIRECTOR as a n c e s t o r s . I t s design has benefited from the more personal contributions of past members of the Rand ROS group, including Henry Sowizral, Sally Goldin,
+and Eric Fain, Ross Quinlan, and Jan van den Driessche also provided useful suggestions.
+
+
+ 78
+ROSS •1X-
+PREFACE
+SUMMARY ACKNOWLEDGMENTS
+iii v
+vii
+10 11 14
+15 15 15 16 16 1 6 17 17 18 18 18 19 19 20 20 20
+21
+21
+22 22
+23
+24
+24
+24
+24
+24
+25 25
+25 v a l u e s 25 26 26
+TABLE OF CONTENTS
+1. OVERVIEW AND BASIC CONCEPTS
+1.1.
+Actor properties and the tangled hierarchy of objects 1.2.
+Defining the behaviors of objects.
+1.3.
+How behaviors get invoked by matching passed messages 1.4.
+Powerful behaviors match classes of messages
+1.5.
+Behaviors, like properties, can be inherited
+1.6.
+Predefined actors and reserved words in ROSS
+1.7.
+Two examples
+1.7.1. Automated secretary 1 . 7 . 2 . Queueing system
+1.8. Using the manual
+2. CREATING ACTORS
+2 . 1 .
+Creating actors to represent new
+subclasses CREATE GENERIC <obj > WITH <specs>
+CREATE NEW GENERIC < o b j > WITH ‹ s p e c s >
+2.2
+Creating instances
+C R E AT E INSTANCE < o b j > WITH < s p e c s >
+CREATE NEW INSTANCE <obj> WITH <specs>
+2.3. Tailoring the interactive creation of objects 2.4. Creating actors by analogy
+DUPLICATE YOURSELF AS <newobj> . . .
+MAKE <object> LIKE <example> EXCEPT <quals > 2.5. Some other commands................
+MAKE < o b j > WITH < s p e c s >
+REMAKE < o b j > WITH < s p e c s >
+2.6. Killing objects K I L L YOURSELF
+3. MANIPULATING THE BEHAVIOR OF ACTORS
+WHEN RECEIVING <msg-template>
+< a c t i o n s > RECALL BEHAVIOR MATCHING <message> FORGET BEHAVIOR MATCHING <m e s s a g e >
+KILL BEHAVIORS MATCHING <message>
+4. MANIPULATING THE ATTRIBUTES OF ACTORS
+4.1. Setting and fetching attribute values SET YOUR <slot> TO ‹value >
+RECALL YOUR <slot>
+FORGET YOUR < s l o t >
+4.2. Changing attribute values INCREMENT YOUR < s l o t > BY DECREMENT YOUR <slot> BY
+<n> <n>
+4.3. Adding to and selectively
+deleting
+from
+attribute ADD‹value>TOYOURLIST
+OF <slot>
+REMOVE «value> FROM YOUR
+LIST OF <siot>
+
+
+1. OVERVIEW AND BASIC CONCEPTS
+ROSS is object-oriented
+programming
+language
+implemented in Franzlisp. The hallmark of ROSS and
+other
+object-oriented programming languages such as SMALLTALK (Goldberg and
+Kay, 1976; Ingalls, 1976), PLASMA
+in terms of message-passing among a collection a c t o r s o r Object-oriented languages, in particular ROSS, are useful for modeling and understanding
+dynamic
+real-world systems whose complexity
+makes more analytic (mathematical) tools inappropriate.
+In many cases, one would like to understand a complex dynamic
+without
+experimenting w i t h it in t h e real world. First, one
+might be interested in evaluating alternative designs without incurring the cost of
+building real prototypes to find the best one. One would therefore like faithful simulations that would inexpensively reveal behavioral properties. would be far better to test certain systems hypothetically for For example, one would like t o infer the behavioral properties of a faulty nuclear reactor, but would not risk experiencing them.
+In many s u c h d y n a m i c s y s t e m s s e v e r a l c o m p o n e n t o b j e c t s
+h a v e distinct properties and react in predictable ways to given inputs.
+For example, a car engine includes carburetor, transmission, etc., each of which responds in
+characteristic fashion to input forces or substances. The difficulty in predicting the behavior of these systems stems
+not from an inability to specify the behaviors of the components in isolation, but from t h e i r complex interactions. I n particular, it is difficult t o understand the
+long chains of cause and effect that can obtain.
+That is, in a system of interacting parts, the local action of a single component
+usually
+has direct
+and
+indirect effects, and although short-term effects of a given component's action are easily seen,
+the
+more distant
+indirect effects, which are often
+crucial t ounderstanding the system a sa whole, are much more difficult to see. The ROSS language provides tools for making t h e s e important subtle effects comprehensible.
+In ROSS, one understands such s y s t e m s by creating actors that represent the modular components, and defining behaviors for those actors to describe how the actors (components) will respond to each of
+the kinds of possible inputs. The inputs and outputs that define a behavior for each actor are themselves represented as messages, which are passed
+from actor to actor. Message-passing provides the basis for understanding complex interactions between objects. When the programmer d e fi n e s actor's behavior,
+he
+need be
+concerned only with how the corresponding objects directly react to proximal inputs. When the program runs, however, complex and unforeseen distant effects of a local piece of behavior can be revealed because each local message transmitted can trigger
+others, and these in turn
+can trigger s t i l l others. Thus, a ROSS program can easily model the at lity proving son a etect i the tae p r i m e s cotesponding
+1 In thismanualweuse the terms "actor" and "object" interchangeably.
+ ROSS
+Overview and basic concepts
+-2-
+to the "causal chain" is
+explicit
+structure that can be
+examined, traced, and quantified. Direct and indirect effects are equally visible.
+1.1. Actor properties and the tangled hierarchy of objects
+Actors can be thought of as small computers. Like closures, they combine aspects of data structures and procedures. Specifically,each act exhale, set of herten atributes a r e abel oka have av
+[Eunice:
+These attribute-value pairs are acted on much like ordinary Lisp property
+The superordinates of a given actor are
+Actors thus come in two distinct types: instance-actors like Eunice, representing individuals, and generic or class objects that represent sets of individuals. Above, Woman is one such class object. Woman might look like:
+[Woman:
+sex female parents
+(person) ].
+Note here that Woman also has parents. In general, this linking of actors can have many levels, so that actors form a complex hierarchy o b j e c t s . Moreover, since a given actor can have several parents (i.e., can be a member of several c l a s s e s ) , the hierarchy connecting objects is
+it is not arranged as a strict tree.
+The intended semantics of instance-actors and generics should be
+obvious from the examples. Generally, actors denote real-world objects, or sets, while their properties denote features, parts, or behaviors of t h o s e
+L inkage :t he subse"f elati on( woman"na sdp ersoneationsFARENT, a Nd women CONSLItute a
+subset of persons), or the "set-membership" relation ("Eunice" has "Woman" as aPARENT, and Eunice is member of the set of women.
+The tangled hierarchy of relations induced by the PARENT
+relation on actors
+i s c r i t i c a l to object-oriented programming in general, and ROSS in important,
+it provides the
+inheritance
+p e a r c h e s . a n d e t o r i m s a t d t o i t h e r i t v i d e s p o r t l e s o f E s P AR E NT o i t e r t s in the operational sense that if a given attribute's v a l u e
+is explicitly stored with a PARENT of the actor (but not with the actor itself), then that value will be retrieved when the actor is requested to recall its
+dentist
+profession
+age 39
+parents (woman adult professional) ].
