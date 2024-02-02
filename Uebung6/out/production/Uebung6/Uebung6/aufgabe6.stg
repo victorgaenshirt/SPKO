@@ -1,0 +1,40 @@
+//group Aufgabe6;
+
+delimiters "$","$"
+
+root(n) ::= <<
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<style type="text/css">
+th, td { border-bottom: thin solid; padding: 4px; text-align: left; } td { font-family: monospace }
+</style>
+</head>
+<body>
+<b>Sprachkonzepte, Aufgabe 6</b>
+$n:classes(); separator="\n"$
+</body>
+</html>
+>>
+
+classes(c) ::= <<
+<h2>$c$</h2>
+<table>
+$if(c.interface)$
+<tr><th>Methods</th></tr>
+<tr><td>$c.methods:method(); separator="<br>\n"$</td></tr> $else$
+<tr><th>Interface</th><th>Methods</th></tr> $c.interfaces:interfaces(); separator="\n"$ $endif$
+</table>
+>>
+interfaces(i) ::= <<
+<tr>
+<td valign=top>$i.name$</td> <td>$i.methods:method(); separator="<br>\n"$</td> </tr>
+>>
+
+method(m) ::= <<
+$m.returnType.name$ $m.name$($m.parameterTypes:methodParameterTypes(); separator=", "$)
+>>
+
+methodParameterTypes(p) ::= << $p$
+>>
+

@@ -32,7 +32,7 @@ public final class Procedural {
 
         long stop = System.nanoTime();
 
-        System.out.printf("result = %d (%d microsec)%n", n, (stop - start) / 1000);
+        System.out.printf("result = %d Zeichen in (%d microsec)%n", n, (stop - start) / 1000);
     }
 
 
@@ -83,7 +83,7 @@ public final class Procedural {
 
             String eintrag = iter.next();
             System.out.println(eintrag.length());
-            if (eintrag.length() <= 20) {
+            if (eintrag.length() <= MIN_LENGTH) {
                 iter.remove();
             }
         }
@@ -94,18 +94,18 @@ public final class Procedural {
 
     private static int totalLineLengths(LinkedList<String> list) {
         int counter = 0;
+        for (String line : list) {
+            counter += line.length();
+        }
         return counter;
     }
 
 
     private static void kontrollPrint(LinkedList<String> list) {
-        
         System.out.println("========KONTROLLPRINT========");
-
         for (String string : list) {
             System.out.println("line: " + string);
-        }    
-
+        }
         return;
     }
 
