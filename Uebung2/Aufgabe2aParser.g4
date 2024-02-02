@@ -3,7 +3,6 @@ parser grammar Aufgabe2aParser;
 //Parser für Aufgabe 2a
 options { tokenVocab=Aufgabe2aLexer; }
 
-//mailList : expr (COMMA expr)*;
 expr : userPart MAILSIGN domainPart;
 userPart: USER;
 domainPart: REST;
